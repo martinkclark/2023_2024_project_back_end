@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\VendorController;
+use App\Http\Controllers\VendorTransactionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,8 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('vendor-transactions', VendorTransactionController::class);
+Route::resource('api/vendors', VendorController::class);
 
 Route::get('/', function () {
     return view('welcome');
