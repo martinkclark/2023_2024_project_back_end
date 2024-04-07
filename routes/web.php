@@ -17,7 +17,7 @@ use App\Http\Controllers\VendorTransactionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('vendor-transactions', VendorTransactionController::class);
+Route::resource('api/vendor-transactions', VendorTransactionController::class);
 Route::resource('api/vendors', VendorController::class);
 
 Route::get('/', function () {

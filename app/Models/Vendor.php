@@ -11,7 +11,6 @@ class Vendor extends Model
 
     protected $fillable = [
         'pan_number',
-        'gst_number',
         'tin',
         'vendor_name',
         'owner_name',

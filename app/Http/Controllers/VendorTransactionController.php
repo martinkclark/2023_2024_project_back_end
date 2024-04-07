@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\VendorTransaction;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
 
 class VendorTransactionController extends Controller
@@ -11,11 +12,16 @@ class VendorTransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $transactions = VendorTransaction::all();
-        return response()->json($transactions);
-    }
+
+public function index()
+{
+    $data = VendorTransaction::select('vendor_transactions.*', 'vendors.pan_number as PAN')
+        ->join('vendors', 'vendor_transactions.vendor_id', '=', 'vendors.id')
+        ->get();
+
+    return response()->json($data);
+}
+
 
     /**
      * Show the form for creating a new resource.

@@ -29,11 +29,9 @@ class VendorController extends Controller
     {
     $request->validate([
         'pan_number' => 'required|unique:vendors', // Ensure PAN number is unique
-        'gst_number' => 'required|unique:vendors', // Ensure GST number is unique
         // Add other validation rules as needed
     ], [
         'pan_number.unique' => 'The provided PAN number is already registered.',
-        'gst_number.unique' => 'The provided GST number is already registered.'
     ]);
 
     // If validation passes, create a new vendor
